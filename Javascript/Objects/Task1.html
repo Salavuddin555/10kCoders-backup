@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects</title>
+  </head>
+  <body>
+    <h1>StudentInformation</h1>
+    <script>
+      var studentInfo = {
+        firstName: "Salavuddin",
+        secondName: "Shaik",
+        fatherName: "Baji",
+        USN: "4GH16CS045",
+        fullstudentInfo: function () {
+          // console.log(this)
+          document.write(
+            studentInfo.firstName +
+              "<br>" +
+              this.secondName +
+              "<br>" +
+              this.fatherName +
+              "<br>" +
+              this.USN
+          );
+          console.log(
+            this.firstName +
+              " " +
+              this.secondName +
+              " " +
+              this.fatherName +
+              " " +
+              this.USN
+          );
+        },
+      };
+       studentInfo.fullstudentInfo();
+      //  studentInfo.subject="Java"
+      //  studentInfo.marks=75
+      //  studentInfo.email="salavuddinsk1998@gmail.com"
+      //  studentInfo.secondName="Sk"
+      //  studentInfo['city']="Bangalore"
+      //  studentInfo['performance']="good"
+      //  studentInfo['joiningYear']="Feb"
+
+      //  document.write(studentInfo.firstName+"<br>"+studentInfo.subject+"<br>"+studentInfo.USN+"<br>"+studentInfo.secondName)
+      //  document.write(studentInfo.subject+"<br>"+studentInfo.USN+"<br>")
+
+      //  console.log(studentInfo)
+    </script>
+    <hr />
+    <h1>Cast</h1>
+    <script>
+      var cast = {
+        Hero: "AlluArjun",
+        Heroine: "rashmika",
+        director: "sukumar",
+        music: "devi",
+        // fullcast:function(){
+        //   console.log(this.Hero+" "+this.Heroine+""+this.director+""+this.music)
+        // }
+      };
+      document.write(
+        cast.Hero +
+          "<br>" +
+          cast.Heroine +
+          "<br>" +
+          cast.director +
+          "<br>" +
+          cast.music
+      );
+      
+    </script>
+    <hr />
+    <h1>Movie</h1>
+    <script>
+      var movie = {
+        hero: "Chiranjeevi",
+        secondHero: "salman",
+        music: "thaman",
+        movieCast:function(){
+          console.log(this.hero+"\n"+this.secondHero+"\n "+this.music)
+        }
+      };
+      movie.movieCast()
+      // document.write(movie.hero +"<br>"+movie.secondHero+"<br>"+movie.music)
+      // document.write("hero:"+movie.hero+"<br> seconndHero:"+movie.secondHero)
+      for (a in movie) {
+        document.write("<hr>" + a + ":" + movie[a] + "<br> <hr>");
+      }
+    </script>
+    <h1>Opening Batsman</h1>
+    <script>
+      var opening = {
+        name: "Rohit",
+        Rhand: "righthandbatsman",
+        city: "Mumbai",
+        ipl: "MumbaiIndians",
+      };
+      for (b in opening) {
+        document.write(b + ":" + opening[b] + "<br>");
+      }
+    </script>
+    <h1>Non striker</h1>
+    <script>
+      var nonstriker = {
+        name: "KLRahul",
+        Rhand: "righthandbatsman",
+        city: "Karnataka",
+        ipl: "Punjab",
+      };
+      for (c in nonstriker) {
+        document.write(c + ":" + nonstriker[c] + "<br>");
+      }
+    </script>
+    <h1>One down</h1>
+    <script>
+      var onedown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (d in onedown) {
+        document.write(d + ":" + onedown[d] + "<br>");
+      }
+    </script>
+    <h1>twodown</h1>
+    <script>
+      var twodown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (e in twodown) {
+        document.write(e + ":" + twodown[e] + "<br>");
+      }
+    </script>
+    <h1>Threedown</h1>
+    <script>
+      var Threedown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (f in Threedown) {
+        document.write(f + ":" + Threedown[f] + "<br>");
+      }
+    </script>
+    <h1>Forthdown</h1>
+    <script>
+      var Forthdown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (g in Forthdown) {
+        document.write(g + ":" + Forthdown[g] + "<br>");
+      }
+    </script>
+    <h1>fifthdown</h1>
+    <script>
+      var fifthdown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (h in onedown) {
+        document.write(h + ":" + fifthdown[h] + "<br>");
+      }
+    </script>
+    <h1>sixthdown</h1>
+    <script>
+      var sixthdown = {
+        name: "ViratKohli",
+        Rhand: "righthandbatsman",
+        city: "Delhi",
+        ipl: "Royal Challengers Bangalore",
+      };
+      for (i in sixthdown) {
+        document.write(i + ":" + onedown[i] + "<br>");
+      }
+    </script>
+  </body>
+</html>
