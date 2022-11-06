@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // literal way
+        var family={
+            fatherName:"Baji",
+            motherName:"Fathimunnisa",
+            brotherName:"Sadhik",
+            fatherOccu:"Teacher",
+            email:"salavuddinsk@gmail.com",
+            familyDetails:function(){
+                document.write(this.fatherName+"<br>"+this.motherName)
+            }
+            
+        }
+        for(a in family){
+            if(a !== "email" && a !== "familyDetails"){
+                document.write(a+":"+family[a]+"<br>")
+            }
+        }
+        document.write("<br>")
+        // using oop way
+        var family2=new Object({
+            fatherName:"Venkatesh",
+            motherName:"geetha",
+            brotherName:"srinu"
+        })
+        for(b in family2){
+            document.write(b+":"+family2[b]+"<br>")
+        }
+        document.write("<br>")
+        //using constructor function
+        function Family(fatherName,motherName,brotherName){
+            this.fatherName=fatherName;
+            this.motherName=motherName;
+            this.brotherName=brotherName;
+
+        }
+        var family3=new Family("srinu","deepi","raju")
+        for(c in family3){
+            document.write(c +"="+family3[c]+"<br>")
+        }
+        document.write("<br>")
+        // using class
+        class Family2{
+            constructor(fatherName,motherName,brotherName){
+                this.fatherName=fatherName;
+                this.motherName=motherName;
+                this.brotherName=brotherName;
+            }
+        }
+        var familydetails7=new Family2("naveen","geeth","nav")
+        for(d in familydetails7){
+            document.write(d+"="+familydetails7[d]+"<br>")
+        }
+    </script>
+</body>
+</html>

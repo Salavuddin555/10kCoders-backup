@@ -20,12 +20,22 @@
                             owner:"GMR Group",
                             fullTeam:function(){
                                 console.log("teamName:"+this.teamName+"<br>"+"captain:"+this.captain+"\n"+this.owner)
-                                document.write("teamName:"+this.teamName+"<br>"+"captain:"+this.captain+"<br>"+this.owner)
+                                 document.write(this.teamName+"<br>"+this.captain+"<br>"+this.owner)
                             }
                         }
-                        team5.fullTeam();
+        //                 for(a in team5){
+        //     if(a !== "fullTeam"){
+        //         document.write(a + " : "+team5[a]+"<br>");
+        //     }
+        //     else{
+        //         document.write(a + " : ");
+        //         team5.fullTeam();
+        //     }
+        // }
+                    team5.fullTeam();
                     </script>
-                </fieldset>
+            </div>
+             </fieldset>
                 <br>
                     <fieldset>
                         <legend class="legend"><h2>Object using OOP way</h2></legend>
@@ -37,7 +47,11 @@
                                      owner:"preethi zintha",
                                 })
                                 for(b in team6){
+                                   if(b == "teamName"){
                                     document.write(b+"="+team6[b]+"<br>")
+                                   }else {
+                                    document.write(b+"="+team6[b]+"<br")
+                                   }
                                 }
                             </script>
                         </div>
@@ -54,7 +68,9 @@
                             }
                             var team7=new Team("Gujarat","hardik","CVC")
                             for(c in team7){
-                                document.write(c+"="+team7[c]+"<br>");
+                                if(c == "owner"){
+                                    document.write(c+"="+team7[c]+"<br>")
+                                }
                             }
                         </script>
                     </div>
@@ -77,9 +93,10 @@
                         </script>
                     </div>
                 </fieldset>
-                </div>
+                </div> -->
 
-        </div>
+        
+    </div>
     </div>
 </body>
 </html>
