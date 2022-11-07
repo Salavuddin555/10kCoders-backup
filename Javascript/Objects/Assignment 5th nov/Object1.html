@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <hr />
+      <hr />
+      <div class="sections">
+        <fieldset>
+          <legend class="legend">
+            <h2>Literal way</h2>
+          </legend>
+          <div class="section1">
+            <script>
+              var person = {
+                fname: "Salavuddin",
+                lname: "Shaik",
+                city: "Jangareddygudem",
+              };
+              person.email = "salavuddinsk1998@gmail.com";
+              person["pnumber"] = 7892027712;
+              for (a in person) {
+                document.write(a + ":" + person[a] + "," + "<br>");
+              }
+              console.log(person);
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend">
+            <h2>Object using OOP way</h2>
+          </legend>
+          <div class="section1">
+            <script>
+              var person1 = new Object({
+                fname: "Salavuddin",
+                lname: "Shaik",
+                USN: "4GH16CS045",
+              });
+              for (b in person1) {
+                document.write(b + ":" + person1[b] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend">
+            <h2>Object using Constructor function</h2>
+          </legend>
+          <div class="section1">
+            <script>
+              function Person(fname, lname, usn, email, city) {
+                this.fname = fname;
+                this.lname = lname;
+                this.usn = usn;
+                this.email = email;
+                this.city = city;
+              }
+              var person3 = new Person(
+                "Salavuddin",
+                "Shaik",
+                "4GH16CS045",
+                "salavuddinsk1998@gmail.com",
+                "Jangareddygudem"
+              );
+              for (c in person3) {
+                document.write(c + "=" + person3[c] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend">
+            <h1>Object using Class</h1>
+          </legend>
+          <div class="section1">
+            <script>
+              class PersoN {
+                constructor(fname, lname, email) {
+                  this.fname = fname;
+                  this.lname = lname;
+                  this.email = email;
+                }
+              }
+              var person4 = new PersoN(
+                "Salavuddin",
+                "Shaik",
+                "salavuddinsk1998@gmail.com"
+              );
+              for (d in person4) {
+                document.write(d + "=" + person4[d] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <br />
+    <br />
+  </body>
+</html>
