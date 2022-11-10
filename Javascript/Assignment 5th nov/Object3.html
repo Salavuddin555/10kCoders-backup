@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sections">
+            <fieldset>
+                <legend class="legend"><h2>Literal way</h2></legend>
+                <div class="section1">
+                    <script>
+                        var team5={
+                            teamName:"Delhi",
+                            captain:"pant",
+                            owner:"GMR Group",
+                            fullTeam:function(){
+                                console.log("teamName:"+this.teamName+"<br>"+"captain:"+this.captain+"\n"+this.owner)
+                                document.write("teamName:"+this.teamName+"<br>"+"captain:"+this.captain+"<br>"+this.owner)
+                            }
+                        }
+                        team5.fullTeam();
+                    </script>
+                </fieldset>
+                <br>
+                    <fieldset>
+                        <legend class="legend"><h2>Object using OOP way</h2></legend>
+                        <div class="section1">
+                            <script>
+                                var team6=new Object({
+                                    teamName:"Punjab",
+                                    captain:"Rahul",
+                                     owner:"preethi zintha",
+                                })
+                                for(b in team6){
+                                    document.write(b+"="+team6[b]+"<br>")
+                                }
+                            </script>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                    <legend class="legend"><h2>Object using Constructor function</h2></legend>
+                    <div class="section1">
+                        <script>
+                            function Team(teamName,captain,owner){
+                                this.teamName=teamName;
+                                this.captain=captain;
+                                this.owner=owner
+                            }
+                            var team7=new Team("Gujarat","hardik","CVC")
+                            for(c in team7){
+                                document.write(c+"="+team7[c]+"<br>");
+                            }
+                        </script>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="legend"><h1>Object using Class</h1></legend>
+                    <div class="section1">
+                        <script>
+                            class Team8{
+                                constructor(teamName,captain,owner){
+                                    this.teamName=teamName;
+                                    this.captain=captain;
+                                    this.owner=owner;
+                                }
+                            }
+                            var team8=new Team8("lucknow","Rahul","srd")
+                            for(d in team8){
+                                document.write(d+"="+team8[d]+"<br>");
+                            }
+                        </script>
+                    </div>
+                </fieldset>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sections">
+        <fieldset>
+          <legend class="legend"><h2>Literal way</h2></legend>
+          <div class="section1">
+            <script>
+              var team1 = {
+                team: "CSK",
+                captain: "MSDHONI",
+                viceCaptain: "SureshRaina",
+                owner: "KasiViswanathan",
+                teamStrenght: 25,
+              };
+              for (a in team1) {
+                document.write(a + ":" + team1[a] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend"><h2>Object using OOP way</h2></legend>
+          <div class="section1">
+            <script>
+              var team2 = new Object({
+                team: "MUmbai Indians",
+                captain: "Rohith",
+                viceCaptain: "Surya",
+                owner: "Ambani",
+                teamStrenght: 25,
+              });
+              for (b in team2) {
+                document.write(b + ":" + team2[b] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend">
+            <h2>Object using Constructor function</h2>
+          </legend>
+          <div class="section1">
+            <script>
+              function Team(
+                teamName,
+                captain,
+                viceCaptain,
+                owner,
+                teamStrenght
+              ) {
+                this.teamName = teamName;
+                this.captain = captain;
+                this.viceCaptain = viceCaptain;
+                this.owner = owner;
+                this.teamStrenght = teamStrenght;
+              }
+              var team3 = new Team(
+                "Sunriser",
+                "Williomson",
+                "Buvneshwar",
+                "kalanithi maran",
+                25
+              );
+              for (c in team3) {
+                document.write(c + "=" + team3[c] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend"><h1>Object using Class</h1></legend>
+          <div class="section1">
+            <script>
+              class TeaM {
+                constructor(teamName, captain, viceCaptain, owner) {
+                  this.teamName = teamName;
+                  this.captain = captain;
+                  this.viceCaptain = viceCaptain;
+                  this.owner = owner;
+                }
+              }
+              var team4 = new TeaM("Kolkata", "shreyas", "cummins", "sharukh");
+              for (d in team4) {
+                document.write(d + "=" + team4[d] + "<br>");
+              }
+            </script>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </body>
+</html>

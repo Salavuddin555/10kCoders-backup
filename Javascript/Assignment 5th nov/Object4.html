@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sections">
+            <fieldset>
+                <legend class="legend"><h2>Literal way</h2></legend>
+                <div class="section1">
+                    <script>
+                        var movie1={
+                            movie:"Ramam ",
+                            hero:"NTR",
+                            director:"rajamouli",
+                            cast:function(){
+                                console.log("movie:"+this.movie+"<\n>"+"hero:"+this.hero+"\n"+"director:"+this.director)
+                                document.write("movie:"+this.movie+"<br>"+"hero:"+this.hero+"<br>"+"director:"+this.director)
+                            }
+                        }
+                        movie1.cast();
+                    </script>
+                </fieldset>
+                <br>
+                    <fieldset>
+                        <legend class="legend"><h2>Object using OOP way</h2></legend>
+                        <div class="section1">
+                            <script>
+                                var movie2=new Object({
+                                    movie:"Godfather",
+                                     hero:"chiranjeevi",
+                                    director:"raja",
+                                })
+                                for(b in movie2){
+                                    document.write(b+"="+movie2[b]+"<br>")
+                                }
+                            </script>
+                        </div>
+                    </fieldset>
+                    <br>
+                    <fieldset>
+                    <legend class="legend"><h2>Object using Constructor function</h2></legend>
+                    <div class="section1">
+                        <script>
+                            function Movie3(movie,hero,director){
+                                this.movie=movie;
+                                this.hero=hero;
+                                this.director=director;
+                            }
+                            var movie3=new Movie3("war","hrithik","risha")
+                            for(c in movie3){
+                                document.write(c+"="+movie3[c]+"<br>");
+                            }
+                        </script>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend class="legend"><h1>Object using Class</h1></legend>
+                    <div class="section1">
+                        <script>
+                            class Movie4{
+                                constructor(movie,hero,director){
+                                    this.movie=movie;
+                                    this.hero=hero;
+                                    this.director=director;
+                                }
+                            }
+                            var movie4=new Movie4("pushpa","arjun","sukumar")
+                            for(d in movie4){
+                                document.write(d+"="+movie4[d]+"<br>");
+                            }
+                        </script>
+                    </div>
+                </fieldset>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>
