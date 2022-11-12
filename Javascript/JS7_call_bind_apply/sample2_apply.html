@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply</title>
+</head>
+<body>
+    <script>
+        var asif={
+            fname:"Asif",
+            lname:"khan"
+        }
+        var abdul={
+            fname:"Abdul",
+            lname:"Haq"
+        }
+        function fullname(...name){
+            console.log(this.fname+this.lname)
+            console.log(name)
+        }
+        var teamIndia=[
+        {
+                name:"Rahul",
+                runs:4,
+                balls:8,
+                fours:0,
+                sixes:0,
+                sr:50
+            },
+            {
+                name:"Rohit",
+                runs:4,
+                balls:7,
+                fours:0,
+                sixes:0,
+                sr:57.14
+            },
+        ]
+
+            fullname.apply(abdul,teamIndia);
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var IndianTeam = [
+        { name: "Rahul", runs: 9, balls: 12, fours: 1, sixes: 1, sr: "75" },
+        { name: "Rohit", runs: 53, balls: 39, fours: 4, sixes: 3, sr: "135" },
+        { name: "Kohli", runs: 62, balls: 44, fours: 3, sixes: 2, sr: "140" },
+        { name: "SKY", runs: 51, balls: 25, fours: 7, sixes: 1, sr: "204" },
+      ];
+      var teamScore = IndianTeam.reduce((initialvalue, player) => {
+        if(initialvalue.runs){
+            return initialvalue.runs+player.runs
+        }else{
+            return initialvalue+player.runs
+        }
+        
+      });
+      console.log("Total Score:"+teamScore);
+      document.write("Total Score:"+teamScore+"<br>")
+
+
+      var totalFours=IndianTeam.reduce((initialvalue1,player1)=>{
+        if(initialvalue1.fours){
+        return initialvalue1.fours+player1.fours
+      }else{
+        return initialvalue1+player1.fours
+      }
+      })
+
+        console.log("Total Fours:"+totalFours);
+        document.write("Total Score:"+totalFours+"<br>")
+
+    var totalSixes=IndianTeam.reduce((initialvalue2,player2)=>{
+        if(initialvalue2.sixes){
+            return initialvalue2.sixes+player2.sixes
+        }else{
+            return initialvalue2+player2.sixes
+        }
+    })
+      console.log("Total sixes:"+totalSixes)
+      document.write("Total sixes:"+totalSixes+"<br>")
+      
+    var lowestRuns=IndianTeam.filter((player)=>{
+      return player.runs<20
+    })
+    console.log("lowestRuns : ",lowestRuns)
+    // document.write("Lowest Runs:"+lowestRuns+"<br>")
+    
+    var highestRuns=IndianTeam.filter((player)=>{
+      return player.runs>55
+    })
+    console.log("highestRuns :",highestRuns)
+    // document.write("highestRuns:",highestRuns+"<br>")
+      
+     var lowestSr=IndianTeam.find((player)=>{
+      return player.sr < 80
+     })
+
+     console.log("LowestSr : ",lowestSr)
+     var highestSr=IndianTeam.find((player)=>{
+      return player.sr > 100
+     })
+     console.log("highestSr : ",highestSr)
+
+
+    //  var highestStrikerate=IndianTeam.filter((player)=>{
+    //   return player.sr>100
+    //  })
+    //  console.log(highestStrikerate)
+    </script>
+  </body>
+</html>

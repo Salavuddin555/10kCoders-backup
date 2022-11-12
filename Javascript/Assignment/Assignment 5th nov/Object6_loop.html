@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            // Literal WAY
+            var bankDetails={
+                holderName:"Salavuddin",
+                bankName:"HDFC",
+                accountNum:78936637366,
+                ifscCode:"HDFC3425",
+                Bank:function(){
+                    document.write(this.holderName+"<br>"+this.bankName+"<br>")
+                }
+            }
+             for(a in bankDetails){
+                if(a !== "Bank"){
+                    document.write(a+":"+bankDetails[a]+"<br>")
+
+                }
+            }
+            
+            document.write("<br>")
+        
+            //  OOPway
+            var bankDetails2=new Object({
+                bankName:"Canara",
+                accountNum:5678543345,
+                branch:"HYD"
+
+            })
+            for(b in bankDetails2){
+                document.write(b+":"+bankDetails2[b]+"<br>")
+            }
+
+            // using Constructor Function
+            document.write("<br>")
+
+            function Bank2(bankname,accountnum,branch){
+                this.bankname=bankname;
+                this.accountnum=accountnum;
+                this.branch=branch;
+            }
+            var bankDetails3 =new Bank2("Axix",123455678,"hyderbad")
+            for(c in bankDetails3){
+                document.write(c +"="+bankDetails3[c]+"<br>")
+            }
+            document.write("<br>")
+            // class
+            class Bank5{
+                constructor(bankname,accountNum,branch){
+                    this.bankname=bankname;
+                    this.accountNum=accountNum;
+                    this.branch=branch;
+                }
+            }
+            var bankDetails6=new Bank5("sbi",643673383,"eluru")
+            for(d in bankDetails6){
+                document.write(d+"="+bankDetails6[d]+"<br>")
+            }
+    </script>
+</body>
+</html>

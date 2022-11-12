@@ -1,0 +1,17 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+.legend{
+    text-align: center;
+    
+}
+.sections{
+    margin: 10px 10px;
+    padding: 5px 5px;
+}
+.section1{
+    margin: 24px 43px;
+    line-height: 2rem;
+    font-size: 18px;
+}

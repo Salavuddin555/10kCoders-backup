@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var randomNumber=Math.random()*300;
+        // console.log("Random Number : ",randomNumber);
+        // console.log("Round Number : ",Math.round(randomNumber));
+        // console.log("Lowest Number :",Math.floor(randomNumber));
+        // console.log("Highst Number:",Math.ceil(randomNumber));
+        var randomNumbers=[]
+        for(i=0;i<10;i++){
+            var rNumber=Math.round(Math.random()*1000000);
+            randomNumbers.push(rNumber)
+        }
+        console.log(randomNumbers)
+
+        var randomNumber = Math.random()*10000
+        console.log("Random",randomNumber)
+        // round - random number rounded one 
+         console.log("Round : ",Math.round(randomNumber))
+        // // floor - lowest
+          console.log("Lowest :",Math.floor(randomNumber))
+        // // ceil - highest
+         console.log("Highest :",Math.ceil(randomNumber))
+
+        //  var rnumbers=[]
+        //  for(i=0;i<10;i++){
+        //     var rnum=Math.round(Math.random()*1000)
+        //     rnumbers.push(rnum)
+            
+        //  }
+        //  console.log(rnumbers)
+
+         var ranNumber=[]
+         for(i=0;i<10;i++){
+            var rno=Math.ceil(Math.random()*5000)
+            ranNumber.push(rno);
+
+         }
+         console.log(ranNumber)
+        // var ranNumber1=[]
+        // for(i=0;i<5;i++){
+        //     var ranNo=Math.floor(Math.random()*200)
+        //     ranNumber1.push(ranNo)
+        // }
+        // console.log(ranNumber1)
+        var IndianTeam=[
+        { name: "Rahul", runs: 9, balls: 12, fours: 1, sixes: 1, sr: "75" },
+        { name: "Rohit", runs: 53, balls: 39, fours: 4, sixes: 3, sr: "135" },
+        { name: "Kohli", runs: 62, balls: 44, fours: 3, sixes: 2, sr: "140" },
+        { name: "SKY", runs: 51, balls: 25, fours: 7, sixes: 1, sr: "204" },]
+             
+            var newNumbers=Math(...IndianTeam)
+            console.log(newNumbers);
+    </script>
+</body>
+</html>

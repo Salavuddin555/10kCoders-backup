@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                // let i = 0;
+        // while (i<10) {
+        //     console.log(i)
+        //     i++
+        // }
+        var randomNumbers = []
+        while(randomNumbers.length <=10){
+            var rNumber = Math.round(Math.random()*1000000);
+            if(String(rNumber).length ==4){
+                randomNumbers.push(rNumber)
+            }
+        }
+        
+        console.log(randomNumbers)
+    </script>
+</body>
+</html>

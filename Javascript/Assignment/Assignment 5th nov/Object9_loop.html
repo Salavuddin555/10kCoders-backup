@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // using literal way
+        var cricketTeam={
+            batsman:"virat",
+            bowler:"bhuvi",
+            fielder:"shami",
+            fullTeam:function(){
+                document.write(this.batsman+this.bowler)
+            }
+            
+        }
+        for(a in cricketTeam){
+            if(a !== fullTeam){
+                document.write(a+":"+cricketTeam[a]+"<br>")
+            }
+        }
+ 
+        // using oop way
+         
+        var cricketTeam1=new Object({
+            batsman:"virat",
+            bowler:"bhuvi",
+            fielder:"shami"
+        })
+        for(b in cricketTeam1){
+            document.write(b+":"+cricket1[b]+"<br>")
+        }
+
+        // using constructor function
+
+        function cricketTeam2(batsman,bowler,umpire,fielder){
+            this.batsman=batsman;
+            this.bowler=bowler;
+            this.umpire=umpire;
+            this.fielder=fielder;
+        }
+        var Team2=new cricketTeam2("azeez","sadhik","abdul","shaheen")
+        for(c in Team2){
+            document.write(c+"="+Team2[c]+"<br>")
+        }
+
+        // using class
+
+        class cricketTeam3{
+            constructor(batsman,bowler,umpire,fielder){
+                this.batsman=batsman;
+            this.bowler=bowler;
+            this.umpire=umpire;
+            this.fielder=fielder;
+            }
+        }
+        var Team4=new cricketTeam3("azeez","sadhik","abdul","shaheen")
+        for(d in Team4){
+            document.write(d+"="+Team4[d]+"<br>")
+        }
+    </script>
+</body>
+</html>

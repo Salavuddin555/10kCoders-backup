@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var studentInfo={
+            name:"ram",
+            class:"12th",
+            section:"c",
+            subject:"Science",
+            marks:34
+
+        }
+        studentInfo.marks=56;
+        // document.write("StudentMarks : ",studentInfo.marks,"<br>")
+        // for(a in studentInfo){
+        //     document.write(a+":"+studentInfo[a]+"<br>")
+        // }
+        var studentInfo1={
+            name:"ram",
+            class:"12th",
+            section:"c",
+            subject:"Science",
+            marks:34,
+            fullname:function(){
+                document.write(this.name+"<br>"+this.class+"<br>"+this.section)
+            }
+        }
+
+        for(a in studentInfo1){
+            if(a!=="fullname"){
+                document.write(a+":"+studentInfo1[a]+"<br>")
+            }else{
+                document.write(a)
+            }
+            // document.write(a+":"+studentInfo1[a]+"<br>")
+            
+        }
+        studentInfo1.fullname
+    </script>
+</body>
+</html>
