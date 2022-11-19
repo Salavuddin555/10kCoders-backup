@@ -1,66 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form1</title>
     <style>
-        #content1{
-            width: 20%;
-            float:left;
-        }
-        #content2{
-            width:80%;
-            float:left;
-        }
-        table{
-            width:100%;
-        }
-        
+      #content1 {
+        width: 20%;
+        float: left;
+      }
+      #content2 {
+        width: 80%;
+        float: left;
+      }
+      table {
+        width: 100%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="content1">
-        <form>
-            <label for="Username">Username</label> <br>
-            <input type="text" name="university" id="University" placeholder="Username"><br>
-            <label for="Password">Password:</label><br>
-            <input type="Password" name="Password" id="Password" placeholder="Password"><br>
-            <label for="Emailaddress">Email address</label><br>
-            <input type="email" name="" id="Emailaddress" placeholder="Email address"><br>
+      <form>
+        <label for="Username">Username</label> <br />
+        <input
+          type="text"
+          name=""
+          id="University"
+          placeholder="Username"
+        /><br />
+        <label for="Password">Password:</label><br />
+        <input
+          type="Password"
+          name=""
+          id="Password"
+          placeholder="Password"
+        /><br />
+        <label for="Emailaddress">Email address</label><br />
+        <input
+          type="email"
+          name=""
+          id="Emailaddress"
+          placeholder="Email address"
+        /><br />
 
-            <select name="select" id="select1"><br>
-                <option value="I am a man">I am a man</option>
-                <option value="I am a man">I am a man</option>
+        <select name="select" id="select1">
+          <br />
+          <option value="I am a man">I am a man</option>
+          <option value="I am a man">I am a man</option></select
+        ><br />
+        <select name="" id="select2">
+          <option value="I want to find woman">I want to find woman</option>
+          <option value="I want to find woman">
+            I want to find woman
+          </option></select
+        ><br />
+        <label for="dateofbirth">Date of Birth</label><br />
+        <input type="date" name="" id="dateofbirth" /><br />
+        <label for="height">Height/weight</label><br />
+        <select name="Height" id="select3">
+          <option>Height</option>
+          <option value="5'1">5'1</option>
+          <option value="5'2">5'2</option>
+          <option value="5'3">5'3</option>
+          <option value="5'3">5'3</option>
+        </select>
 
-            </select><br>
-            <select name="" id="select2">
-                <option value="I want to find woman">I want to find woman</option>
-                <option value="I want to find woman">I want to find woman</option>
-            </select><br>
-            <label for="dateofbirth">Date of Birth</label><br>
-            <input type="date" name="" id="dateofbirth"><br>
-            <label for="height">Height/weight</label><br>
-            <select name="Height" id="select3">
-                <option>Height</option>
-                <option value="5'1">5'1</option>
-                <option value="5'2">5'2</option>
-                <option value="5'3">5'3</option>
-                <option value="5'3">5'3</option>
-            </select>
-            
-            <select name="" id="select4">
-                <option>Weight</option>
-                <option value="63">63</option>
-                <option value="64">64</option>
-                <option value="65">65</option>
-            </select><br><br>
-            <button type="button" onclick="userInfo()">Submit</button>
-            
-        </form>
-        </div>
-        <div id="content2">
+        <select name="" id="select4">
+          <option>Weight</option>
+          <option value="63">63</option>
+          <option value="64">64</option>
+          <option value="65">65</option></select
+        ><br /><br />
+        <button type="button" onclick="userInfo()">Submit</button>
+      </form>
+    </div>
+    <script>
+      var info = {
+        Username: "",
+        Password: "",
+        Emailaddress: "",
+        select1: "",
+        select2: "",
+        dateofbirth: "",
+        select3: "",
+        select4: "",
+      };
+      function userInfo() {
+        for (a in info) {
+        
+            info[a] = document.getElementById(a).value;
+          }
+          console.log(info[a])
+        }
+      
+    </script>
+    <!-- <div id="content2"> 
             <table border="1">
                 <thead>
                     <tr>
@@ -75,7 +110,6 @@
                     </tr>
                 </thead>
             </table>
-        </div>
-    <script src="../js/create.js"></script>
-</body>
+        </div> -->
+  </body>
 </html>
