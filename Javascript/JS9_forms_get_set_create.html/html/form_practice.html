@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="fname">First Name:</label>
+    <input type="text" name="" id="fname"><br>
+    <label for="username">Username</label>
+    <input type="text" name="" id="username"><br>
+    <label for="email">Email</label>
+    <input type="text" name="" id="email"><br>
+    <label for="password">Password</label>
+    <input type="password" name="" id="password"><br>
+    <label for="confirm">Confirm Password</label>
+    <input type="password" name="" id="confirm"><br>
+    
+    <label for="gender">Gender</label>
+    <input type="radio" name="gender" value="Male" >Male
+    <input type="radio" name="gender" value="Female">Female <br>
+    
+    <label for="subjects">Subjects</label>
+    <input type="checkbox" name="subjects" value="HTML">HTML <br>
+    <input type="checkbox" name="subjects" value="CSS">CSS <br>
+    <input type="checkbox" name="subjects" value="Javascript">Javascript
+
+    <label for="state">State</label>
+    <select name="" id="stateName" >
+        <option value="AP">AP</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Telangana">Telangana</option>
+        <option value="kerala">kerala</option>
+    </select>
+
+    <label for="message">Message</label>
+    <textarea name="" id="message" cols="30" rows="10"></textarea>
+    <!-- <button  onclick="getValues()">Send</button> -->
+    
+    <button onclick="setValues()" type="button">set values</button>
+    <button type="button" onclick="setGender()">set Gender</button><br>
+    <button type="button" onclick="setSubjects()">set check</button><br>
+    <button  type="button" onclick="setDrop()">setDrop</button>
+
+    <script>
+        function getValues(){
+            var fname=document.getElementById("fname").value;
+            var username=document.getElementById("username").value;
+            var email=document.getElementById("email").value;
+            var password=document.getElementById("password").value;
+            var confirm=document.getElementById("confirm").value;
+            var message=document.getElementById("message").value;
+            console.log(fname+username+email+password+confirm+message)
+        }
+
+        function setValues(){
+            var fname="ram";
+            document.getElementById("fname").value=fname;
+
+        }
+        function setGender(){
+            var genderValue="Female";
+            var allraiobtn=document.getElementsByName("gender")
+            allraiobtn.forEach((element)=>{
+                if(element.value==genderValue){
+                    element.checked=true;
+                }
+            })
+        }
+        function setSubjects(){
+            var allcheckbox=document.getElementsByName("subjects");
+            var selectedcheck=["HTML","Javascript"]
+            allcheckbox.forEach((element)=>{
+                var check=selectedcheck.find((val=>{
+                    return val==element.value
+                   
+                }))
+                if(check){
+                    element.checked=true;
+                }
+            })
+        }
+        var allcheck=document.getElementsByName("subjects");
+        var mysubjects=["HTML","JAVASCRIPT"]
+        allcheck.forEach((element)=>{
+            var check=mysubjects.find((val)=>{
+                return val==element.value
+            })
+            if(check){
+                element.checked=true;
+            }
+        })
+            function setDrop(){
+                var statename="kerala"
+                document.getElementById("stateName").value=statename
+                
+            }
+    </script>
+
+</body>
+</html>

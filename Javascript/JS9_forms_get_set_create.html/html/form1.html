@@ -1,115 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form1</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-      #content1 {
-        width: 20%;
-        float: left;
-      }
-      #content2 {
-        width: 80%;
-        float: left;
-      }
-      table {
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="content1">
-      <form>
-        <label for="Username">Username</label> <br />
-        <input
-          type="text"
-          name=""
-          id="University"
-          placeholder="Username"
-        /><br />
-        <label for="Password">Password:</label><br />
-        <input
-          type="Password"
-          name=""
-          id="Password"
-          placeholder="Password"
-        /><br />
-        <label for="Emailaddress">Email address</label><br />
-        <input
-          type="email"
-          name=""
-          id="Emailaddress"
-          placeholder="Email address"
-        /><br />
-
-        <select name="select" id="select1">
-          <br />
-          <option value="I am a man">I am a man</option>
-          <option value="I am a man">I am a man</option></select
-        ><br />
-        <select name="" id="select2">
-          <option value="I want to find woman">I want to find woman</option>
-          <option value="I want to find woman">
-            I want to find woman
-          </option></select
-        ><br />
-        <label for="dateofbirth">Date of Birth</label><br />
-        <input type="date" name="" id="dateofbirth" /><br />
-        <label for="height">Height/weight</label><br />
-        <select name="Height" id="select3">
-          <option>Height</option>
-          <option value="5'1">5'1</option>
-          <option value="5'2">5'2</option>
-          <option value="5'3">5'3</option>
-          <option value="5'3">5'3</option>
-        </select>
-
-        <select name="" id="select4">
-          <option>Weight</option>
-          <option value="63">63</option>
-          <option value="64">64</option>
-          <option value="65">65</option></select
-        ><br /><br />
-        <button type="button" onclick="userInfo()">Submit</button>
-      </form>
-    </div>
-    <script>
-      var info = {
-        Username: "",
-        Password: "",
-        Emailaddress: "",
-        select1: "",
-        select2: "",
-        dateofbirth: "",
-        select3: "",
-        select4: "",
-      };
-      function userInfo() {
-        for (a in info) {
-        
-            info[a] = document.getElementById(a).value;
-          }
-          
+        #formContent{
+            width:20%;
+            float:left;
         }
-      
-    </script>
-    <!-- <div id="content2"> 
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Email address</th>
-                        <th>select1</th>
-                        <th>select2</th>
-                        <th>dateofbirth</th>
-                        <th>Height</th>
-                        <th>Weight</th>
-                    </tr>
-                </thead>
-            </table>
-        </div> -->
-  </body>
+        #tableContent{
+            width:80%;
+            float:left;
+        }
+        table{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="formContent">
+        <form >
+            <label for="university">University</label>
+            <input type="text" name="" id="university"><br>
+            <label for="institute">Institute</label>
+            <input type="text" name="" id="institute"><br>
+            <label for="branch">Branch</label>
+            <select name="" id="branch">
+                <option value="Civil">Civil</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="CS">CS</option>
+                <option value="Communication">Communication</option>
+                <option value="IT">IT</option>
+            </select> <br>
+            <label for="degree">Degree</label>
+            <select name="" id="degree">
+                <option value="BE">BE</option>
+                <option value="Btech">Btech</option>
+                <option value="Mtech">Mtech</option>
+            </select> <br>
+            <label for="status">Status</label>
+            <input type="radio" name="status" value="completed">Completed 
+            <input type="radio" name="status" value="pursuing">Pursuing <br>
+             
+            <label for="subject">Subjects</label>
+            <input type="checkbox" name="subject" value="HTML">HTML <br>
+            <input type="checkbox" name="subject" value="CSS">CSS <br>
+            <input type="checkbox" name="subject" value="Javascript">Javascript <br>
+    
+            <label for="cgpa">CGPA</label>
+            <input type="number" name="" id="cgpa"><br>
+    
+            <label for="experience">Experience</label>
+            <input type="number" name="" id="experience"> <br>
+    
+             <label for="website">Website</label>
+             <input type="text" name="" id="website"><br>
+    
+            <label for="doj">Date of joining</label>
+            <input type="date" name="" id="doj"><br>
+            
+            <button onclick="addUser()" type="button">Add User</button>
+        </form>
+    </div>
+    <div id="tableContent">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>university</th>
+                    <th>institute</th>
+                    <th>branch</th>
+                    <th>degree</th>
+                    <th>status</th>
+                    <th>cgpa</th>
+                    <th>experience</th>
+                    <th>website</th>
+                    <th>doj</th>
+                    <th>subjects</th>
+                    <th>EDIT</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </div>
+
+    <script src="../js/create_form1.js"></script>
+    <script src="../js/read_form1.js"></script>
+    <script src="../js/delete_form1.js"></script>
+</body>
 </html>

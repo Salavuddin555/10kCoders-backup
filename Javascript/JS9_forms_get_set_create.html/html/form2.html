@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #formcontent{
+            width: 20%;
+            float:left;
+
+
+
+        }
+        #tablecontent{
+            width:80%;
+            float:left;
+        }
+        table{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="formcontent">
+        <form>
+            <label for="fname">First Name:</label>
+            <input type="text" name="" id="fname"><br>
+            <label for="lname">Last Name:</label>
+            <input type="text" name="" id="lname"><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="" id="dob"><br>
+            <label for="email">Email id:</label>
+            <input type="email" name="" id="email"><br>
+            <label for="number">Mobile Number:</label>
+            <input type="number" name="" id="number"><br>
+    
+            <button type="button" onclick="addSubmit()">Submit</button>
+            <button type="button" >Reset</button>
+    
+    
+        </form>
+    </div>
+    <div id="tablecontent">
+        <table>
+            <thead>
+                <tr>
+                    <th>firstname</th>
+                    <th>lname</th>
+                    <th>dob</th>
+                    <th>email</th>
+                    <th>number</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="../js/create_form2.js"></script>
+    <script src="../js/read_form2.js"></script>
+</body>
+</html>

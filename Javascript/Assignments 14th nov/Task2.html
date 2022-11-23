@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>fname</th>
+                <th>lname</th>
+                <th>tel</th>
+                <th>address</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zip</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <script>
+        var userInfo=[
+    {
+        "fname": "Yiping",
+        "lname": "Bailey",
+        "tel": "(980)782-9439",
+        "address": "122 Mi Rd",
+        "city": "Grand Rapids",
+        "state": "ME",
+        "zip": 91623
+    },
+    {
+        "fname": "Mitchell",
+        "lname": "Prezzavento",
+        "tel": "(669)362-7747",
+        "address": "5460 Sed St",
+        "city": "Panama City",
+        "state": "GA",
+        "zip": 59366
+    },
+    {
+        "fname": "Yolanda",
+        "lname": "Deals",
+        "tel": "(308)384-1432",
+        "address": "3588 Placerat Ln",
+        "city": "Eglin Afb",
+        "state": "VT",
+        "zip": 60719
+    },
+    {
+        "fname": "Gianfranco",
+        "lname": "Bullock",
+        "tel": "(284)088-2107",
+        "address": "4393 Et Rd",
+        "city": "San Antonio",
+        "state": "MT",
+        "zip": 88020
+    },
+    {
+        "fname": "Forest",
+        "lname": "Rutt",
+        "tel": "(563)802-3276",
+        "address": "6193 Morbi Ct",
+        "city": "Blacksburg",
+        "state": "KS",
+        "zip": 75911
+    },
+    {
+        "fname": "Kazi",
+        "lname": "Gillott",
+        "tel": "(431)469-4774",
+        "address": "4388 Scelerisque Rd",
+        "city": "Forney",
+        "state": "WV",
+        "zip": 99788
+    },
+    {
+        "fname": "Jacob",
+        "lname": "Mahajan",
+        "tel": "(434)959-0613",
+        "address": "4792 Vestibulum Dr",
+        "city": "Evanston",
+        "state": "GA",
+        "zip": 37414
+    },
+    {
+        "fname": "Pedro",
+        "lname": "Gage",
+        "tel": "(136)577-1755",
+        "address": "9618 Hendrerit Ln",
+        "city": "Redondo Beach",
+        "state": "WV",
+        "zip": 95368
+    },
+    {
+        "fname": "Dmitry",
+        "lname": "Cahill",
+        "tel": "(535)960-5005",
+        "address": "8385 Tempor Ave",
+        "city": "Atlanta",
+        "state": "MA",
+        "zip": 54004
+    },
+    {
+        "fname": "Judy",
+        "lname": "Molina",
+        "tel": "(355)714-5782",
+        "address": "7345 Pretium Dr",
+        "city": "Tallapoosa",
+        "state": "OK",
+        "zip": 86977
+    }
+]
+var filteredUsers=[]
+function displayUsers(userInfo){
+    document.querySelector("tbody").innerHTML=""
+    userInfo.forEach((user,i)=>{
+    myTr=document.createElement("tr")
+    for (a in user){
+        
+        myTd=document.createElement("td")
+        myTd.innerHTML=user[a]
+        myTr.appendChild(myTd)
+    }
+    myDelTd=document.createElement("td")
+    myBtn=document.createElement("button")
+    myBtn.innerHTML="Delete"
+    myBtn.setAttribute("onclick","userDelete("+ i +")")
+    myDelTd.appendChild(myBtn)
+    myTr.appendChild(myDelTd)
+    document.querySelector("tbody").appendChild(myTr)
+})
+}
+function userDelete(i){
+if(filteredUsers.length==0){
+    filteredUsers=userInfo.filter((user,index)=>{
+        return user.fname!==userInfo[i].fname
+    })
+}else{
+    filteredUsers=filteredUsers.filter((user,index)=>{
+        return user.fname!==filteredUsers[i].fname
+    })
+}
+displayUsers(filteredUsers)
+}
+displayUsers(userInfo)
+    </script>
+</body>
+</html>

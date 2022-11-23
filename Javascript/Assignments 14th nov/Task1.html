@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>fname</th>
+          <th>lname</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var data = [
+        {
+          fname: "Josh",
+          lname: "Kunselman",
+        },
+        {
+          fname: "Shelley",
+          lname: "Stevenson",
+        },
+        {
+          fname: "Miriam",
+          lname: "Evert",
+        },
+        {
+          fname: "Shunita",
+          lname: "Daniel",
+        },
+        {
+          fname: "Corey",
+          lname: "Immormino",
+        },
+        {
+          fname: "Mason",
+          lname: "Rodriguez",
+        },
+        {
+          fname: "Gene",
+          lname: "Valenzano",
+        },
+        {
+          fname: "Laurie",
+          lname: "Short",
+        },
+        {
+          fname: "Haytham",
+          lname: "Women",
+        },
+        {
+          fname: "Amber",
+          lname: "Ghormley",
+        },
+      ];
+      var filteredUsers=[]
+    function displayUsers(data){
+        document.querySelector("tbody").innerHTML=""
+        data.forEach((user, i) => {
+        var myTr = document.createElement("tr");
+        for (a in user) {
+          var myTd = document.createElement("td");
+          myTd.innerHTML = user[a];
+          myTr.appendChild(myTd);
+        }
+        // EDIT
+        var editTd = document.createElement("td");
+        var mybtn = document.createElement("button");
+        mybtn.innerHTML = "EDIT";
+        mybtn.setAttribute("onclick", "userEdit(" + i + ")");
+        editTd.appendChild(mybtn);
+        myTr.appendChild(editTd);
+        // DELETE
+        var deleteTd=document.createElement("td")
+        var myDelbtn=document.createElement("button")
+        myDelbtn.innerHTML="DELETE"
+        myDelbtn.setAttribute("onclick","userDelete("+ i +")")
+        deleteTd.appendChild(myDelbtn)
+        myTr.appendChild(deleteTd)
+        document.querySelector("tbody").appendChild(myTr);
+      });
+
+    }
+    //   function userEdit(i){
+    //     var newUser=users[i]
+    //     for(a in newUser){
+    //         document.getElementById(a).value=newUser[a]
+    //     }
+    //   }
+
+    // function userDelete(i){
+    //     if(filteredUsers.length==0){
+    //         filteredUsers=users.filter((user,index)=>{
+    //             user.fname!==users[i].fname
+    //         })
+    //     }else{
+    //         filteredUsers=filteredUsers.filter((user,index)=>{
+    //             user.fname!==filteredUsers[i].fname
+    //         })
+    //     }
+    //     // console.log(filteredUsers)
+    //     displayUsers(filteredUsers)
+    // }
+    // displayUsers(users)
+
+    function userDelete(i) {
+            console.log("Delete User action performed");
+            if (filteredUsers.length == 0) {
+                filteredUsers = data.filter((user, index) => {
+                    // console.log(user)
+                    return user.fname !== data[i].fname;
+                });
+            }
+            else {
+                filteredUsers = filteredUsers.filter((user, index) => {
+                    // console.log(user)
+                    return user.fname !== filteredUsers[i].fname;
+                });
+            }
+            displayUsers(filteredUsers);
+        }
+
+        displayUsers(data);
+    </script>
+  </body>
+</html>

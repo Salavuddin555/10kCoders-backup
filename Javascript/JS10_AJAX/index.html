@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getDataFromServer()">Get Data</button>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>EDIT</th>
+          <th>DELETE</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var local_api_url = "http://localhost:3000/users/";
+
+var users = []
+      function getDataFromServer() {
+        // console.log("getDataFromServer called !!");
+        var getdata = new XMLHttpRequest();
+        getdata.onreadystatechange = function () {
+          // 1. Status should be 200
+          // 2. ReadyState should be 4
+          if (getdata.readyState == 4 && getdata.status == 200) {
+            users = JSON.parse(getdata.response);
+            displayUsers(users);
+            console.log(users);
+          }
+        };
+        // var api_url = "https://filltext.com/?rows=5&fname={firstName}&company={business}&pretty=true&phone={phone}"
+        // var api_url = "https://jsonplaceholder.typicode.com/users";
+        getdata.open("GET", local_api_url);
+        getdata.send();
+      }
+      getDataFromServer();
+
+      function displayUsers(users) {
+        document.querySelector("tbody").innerHTML=""
+        users.forEach((user, i) => {
+          var myTr = document.createElement("tr");
+          for (a in user) {
+            var myTd = document.createElement("td");
+            if (a !== "address" && a !== "company") {
+              myTd.innerHTML = user[a];
+              myTr.appendChild(myTd);
+            }
+          }
+          var editTd = document.createElement("td");
+          var editBtn = document.createElement("button");
+          editBtn.innerHTML = "EDIT";
+          editBtn.setAttribute("onclick", "editUser(" + i + ")");
+          editTd.appendChild(editBtn);
+          myTr.appendChild(editTd);
+
+          var deleteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("onclick", "deleteUser(" + i + ")");
+          deleteBtn.innerHTML = "DELETE";
+          deleteTd.appendChild(deleteBtn);
+          myTr.appendChild(deleteTd);
+          document.querySelector("tbody").appendChild(myTr);
+        });
+      }
+
+      function editUser() {}
+
+      function deleteUser(i) {
+        var delUser = new XMLHttpRequest();
+        delUser.onreadystatechange = function () {
+          if (delUser.readyState == 4 && delUser.status == 200) {
+            getDataFromServer();
+          }
+        };
+        delUser.open("DELETE",local_api_url+users[i].id);
+        delUser.send()
+      }
+    </script>
+  </body>
+</html>
