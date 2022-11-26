@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        function getData(){
+            return new Promise((resolve,reject)=>{
+                var getInfo=new XMLHttpRequest()
+            getInfo.onreadystatechange=function(){
+                if(getInfo.readyState==4 && getInfo.status==200){
+                    // console.log(JSON.parse(getInfo.response))
+                    data=JSON.parse(getInfo.response).typeMatches[0]
+                
+                    resolve(data)
+                }
+                
+            }
+            getInfo.open("GET","https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent")
+            getInfo.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+            getInfo.setRequestHeader("X-RapidAPI-Host","cricbuzz-cricket.p.rapidapi.com")
+            getInfo.send();
+            })
+        }
+        async function handleAsyncData(){
+            data=await getData()
+            data.seriesMatches.forEach((series)=>{
+                if(series.seriesAdWrapper){
+                    console.log(series)
+                    var myLi=document.createElement("li")
+                    myLi.innerHTML=series.seriesAdWrapper.seriesName
+                    document.querySelector("ul").appendChild(myLi)
+                }
+                
+            })
+        }
+    </script> 
+</body>
+</html>
