@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>callback</title>
+    <title>Document</title>
 </head>
 <body>
-
-    <button onclick="getData()">getData</button>
     <ol></ol>
     <script>
         var params= {matchId: '40381'}
         function getData(){
-            var getTotal=new XMLHttpRequest()
-            getTotal.onreadystatechange=function(){
-            if(getTotal.readyState==4&&getTotal.status==200){
-                data=JSON.parse(getTotal.response)
-                 console.log(data);
-                 displaydata(data)
+            return new Promise((resolve,reject)=>{
+                var getTotal=new XMLHttpRequest()
+                getTotal.onreadystatechange=function(){
+                    if(getTotal.readyState==4&&getTotal.status){
+                        data=JSON.parse(getTotal.response)
+                        resolve(data)
+                        console.log(data)
+                    }
                 }
-            }
-            getTotal.open("GET","https://unofficial-cricbuzz.p.rapidapi.com/matches/get-scorecard"+formatParams(params))
-            getTotal.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
-            getTotal.setRequestHeader("X-RapidAPI-Host","unofficial-cricbuzz.p.rapidapi.com")
-            getTotal.send()
+                getTotal.open("GET","https://unofficial-cricbuzz.p.rapidapi.com/matches/get-scorecard"+formatParams(params))
+                getTotal.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+                getTotal.setRequestHeader("X-RapidAPI-Host","unofficial-cricbuzz.p.rapidapi.com")
+                getTotal.send()
+            })
         }
-
-        function displaydata(data){
+        getData().then((data)=>{
             data.scorecard.forEach((score)=>{
                 // console.log(score)
                 score.batsman.forEach((a)=>{
@@ -44,8 +43,7 @@
 
                 })
             })
-        }
-
+        })
         function formatParams(params) {
                 return "?" + Object
                     .keys(params)
@@ -55,7 +53,6 @@
                     .join("&")
             }
              console.log(formatParams(params))
-             
     </script>
 </body>
 </html>
