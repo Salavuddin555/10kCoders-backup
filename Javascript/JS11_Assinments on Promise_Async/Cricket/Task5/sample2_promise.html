@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <ol></ol>
+    <script>
+        function getData(){
+            return new Promise((resolve,reject)=>{
+                var users=new XMLHttpRequest()
+                users.onreadystatechange=function (){
+                    if(users.readyState==4&&users.status==200){
+                        data=JSON.parse(users.response)
+                        resolve(data)
+                    }
+                }
+                users.open("GET","https://cricket-live-scores4.p.rapidapi.com/api/matches/current")
+                users.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+                users.setRequestHeader("X-RapidAPI-Host","cricket-live-scores4.p.rapidapi.com")
+                users.send();
+            })
+        }
+        getData().then((data)=>{
+            data.data.matches.forEach((score)=>{
+                //   console.log(data.data)
+                data.data.matches.forEach((ele)=>{
+                    //  console.log(ele)
+                     for(a in ele){
+                        if(a=="ground"){
+                            // console.log(ele[a])
+                            for(b in ele[a]){
+                                if(b=="country"){
+                                    // console.log(ele[a][b])
+                                    for(c in ele[a][b]){
+                                        if(c=="shortName"){
+                                            //  console.log(c+":"+ele[a][b][c])
+                                            var myLi1=document.createElement("li")
+                                            myLi1.innerHTML=c+":"+ele[a][b][c]
+                                            document.querySelector("ol").appendChild(myLi1)
+                                        }
+                                        
+                                    }
+                                }
+                                // console.log(b)
+                            }
+                        }
+                        
+                     }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

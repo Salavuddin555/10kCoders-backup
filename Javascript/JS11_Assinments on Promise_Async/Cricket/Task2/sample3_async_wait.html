@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+
+</head>
+<body>
+    <script>
+        function getData(){
+            return new Promise((resolve,reject)=>{
+                var totalData=new XMLHttpRequest()
+            totalData.onreadystatechange=function(){
+                if(totalData.readyState==4 && totalData.status==200){
+                    user=JSON.parse(totalData.response)
+                     console.log(user)
+                    resolve(user)
+                }
+            }
+            totalData.open("GET","https://james-bond-movie-series-data.p.rapidapi.com/actors/daniel%20craig")
+            totalData.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+            totalData.setRequestHeader("X-RapidAPI-Host","james-bond-movie-series-data.p.rapidapi.com")
+            totalData.send();
+            })
+            
+        }
+        getData()
+        // async function handledata(){
+        //     user=await getData()
+        //     console.log(user)
+        // }
+        // handledata()
+    </script>
+</body>
+</html>

@@ -8,6 +8,7 @@
 </head>
 <body>
     <ul></ul>
+    <ol></ol>
     <button onclick="getData()">Get Data</button>
 
     <script>
@@ -18,6 +19,7 @@
                 if(getInfo.readyState==4 && getInfo.status==200){
                     // console.log(JSON.parse(getInfo.response))
                     data=JSON.parse(getInfo.response).typeMatches[0]
+                    data2=JSON.parse(getInfo.response).typeMatches[3]
                     displayAllseriesNames()
                 }
                 
@@ -28,15 +30,25 @@
             getInfo.send();
         }
         function displayAllseriesNames(){
+           
             data.seriesMatches.forEach((series)=>{
                 if(series.seriesAdWrapper){
                     console.log(series)
-                    var myLi=document.createElement("li")
+                 var myLi=document.createElement("li")
                     myLi.innerHTML=series.seriesAdWrapper.seriesName
                     document.querySelector("ul").appendChild(myLi)
                 }
                 
             })
+            data2.seriesMatches.forEach((series1)=>{
+                if(series1.seriesAdWrapper){
+                    console.log(series1)
+                    var myLi1=document.createElement("li")
+                    myLi1.innerHTML=series1.seriesAdWrapper.seriesName
+                    document.querySelector("ol").appendChild(myLi1)
+                }
+            })
+
         }
 
     </script>

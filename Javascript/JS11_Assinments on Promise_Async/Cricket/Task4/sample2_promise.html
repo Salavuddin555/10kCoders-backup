@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul></ul>
+    <script>
+        function getData(){
+            return new Promise((resolve,reject)=>{
+                var totalData=new XMLHttpRequest()
+                totalData.onreadystatechange=function(){
+                    if(totalData.readyState==4&&totalData.status==200){
+                        data=JSON.parse(totalData.response)
+                        resolve(data)
+                    }
+                }
+                totalData.open("GET","https://t20-cricket-news.p.rapidapi.com/news")
+                totalData.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+                totalData.setRequestHeader("X-RapidAPI-Host","t20-cricket-news.p.rapidapi.com")
+                totalData.send()
+            })
+
+        }
+        getData().then((data)=>{
+            data.forEach((element)=>{
+                // console.log(element)
+                for(a in element){
+                    if(a!=="source"){
+                        // console.log(a+":"+element[a])
+                        var myLi1=document.createElement("li")
+                    myLi1.innerHTML=element[a]
+                    document.querySelector("ul").appendChild(myLi1)
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>
