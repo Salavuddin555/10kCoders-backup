@@ -9,13 +9,16 @@
 <body>
     <script>
         var fName="Salavuddin";
-        var message="Hi how ru how";
+        var message="Hi how ru. how";
         console.log(fName.length);
         console.log(message.split(" "));
         console.log(message.split(" ").join(" "));
         // console.log(message.split(" ").reverse(" ").join(" "));
         console.log(message.indexOf("how"));
         console.log(message.lastIndexOf("how"));
+        var dot=message.indexOf(".");
+        console.log(dot);
+        console.log(message.substring(dot+2));
     </script>
 </body>
 </html>
