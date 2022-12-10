@@ -11,10 +11,32 @@
     <div style="text-align:center">
         <button onclick="goToMainPage()" class="btn btn-primary">Go To main page</button>
         <h2 >Welcome to Delete Page</h2>
+        <div id="userDetails"></div>
+        <button onclick="confirmDelete()" class="btn btn-danger">Delete</button>
     </div>
     <script>
+        var url=window.location.href
+        console.log(url);
+        var id=url.substr(url.lastIndexOf("?")+1)
+        console.log(id);
+       fetch("http://localhost:3000/users/"+id)
+       .then((response)=>{
+        return response.json()
+       }).then((user)=>{
+        document.getElementById("userDetails").innerHTML=JSON.stringify(user)
+       })
         function goToMainPage(){
             window.location.href="sample.html"
+        }
+        function confirmDelete(){
+            fetch("http://localhost:3000/users/"+id,{
+                method:'DELETE',
+            })
+            .then((response)=>{
+                response.json()
+            }).then((response)=>{
+                window.location.href="sample.html"
+            })
         }
     </script>
 </body>
