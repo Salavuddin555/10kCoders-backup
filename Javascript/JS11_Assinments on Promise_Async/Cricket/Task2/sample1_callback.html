@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task2</title>
+</head>
+<body>
+    
+    <button onclick="getData()">GetData</button>
+    <ol></ol>
+
+    <script>
+        
+        
+        var data=[]
+        function getData(){
+            var getInfo=new XMLHttpRequest()
+            getInfo.onreadystatechange=function(){
+                if(getInfo.readyState==4 && getInfo.status==200){
+                    // console.log(JSON.parse(getInfo.response))
+                    data=JSON.parse(getInfo.response)
+                     console.log(data)
+                    // console.log(getInfo.response)
+                    displayall(data)
+                }
+                
+            }
+            getInfo.open("GET","https://cricket-live-data.p.rapidapi.com/series")
+            getInfo.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+            getInfo.setRequestHeader("X-RapidAPI-Host","cricket-live-data.p.rapidapi.com")
+            getInfo.send();
+        }
+        
+        function displayall(data){
+            // console.log(data)
+            // console.log(typeof(data.results[0]),data.results[0].series[0].series_name)
+            console.log(data.results)
+            data.results.forEach((ele)=>{
+                // console.log(ele.series)
+                var myLi1=document.createElement("li")
+                    myLi1.innerHTML=ele.type
+                    document.querySelector("ol").appendChild(myLi1)
+            })
+
+
+            
+        }
+        
+    </script>
+</body>
+</html>

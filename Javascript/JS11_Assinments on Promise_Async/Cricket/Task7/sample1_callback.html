@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+
+<button onclick="getData()">getdata</button>
+<ol></ol>
+<body>
+    <script>
+       function getData(){
+        var totalData=new XMLHttpRequest()
+        totalData.onreadystatechange=function(){
+            if(totalData.readyState==4&&totalData.status==200){
+                data=JSON.parse(totalData.response)
+                  console.log(data);
+                displaydata(data)
+            }
+        }
+        totalData.open("GET","https://moviesdatabase.p.rapidapi.com/titles/x/upcoming")
+       totalData.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+       totalData.setRequestHeader("X-RapidAPI-Host","moviesdatabase.p.rapidapi.com")
+       totalData.send()
+       }
+
+       function displaydata(data){
+        // console.log(data.results[2].releaseDate.day)
+        // console.log(data.results[2].releaseDate.month)
+        // console.log(data.results[2].releaseDate.year)
+        data.results.forEach((movie)=>{
+    //    console.log(movie)
+           for(a in movie){
+            if(a=="releaseYear"){
+                console.log(a+":"+movie[a].year)
+                var myLi1=document.createElement("li")
+                 myLi1.innerHTML=a+":"+movie[a].year
+                 document.querySelector("ol").appendChild(myLi1)
+            }
+            
+           }
+        })
+
+       }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol></ol>
+    <script>
+    var params= {matchId: '40381'}
+    function getData(){
+            return new Promise((resolve,reject)=>{
+                var getTotal=new XMLHttpRequest()
+                getTotal.onreadystatechange=function(){
+                    if(getTotal.readyState==4&&getTotal.status){
+                        data=JSON.parse(getTotal.response)
+                        resolve(data)
+                        console.log(data)
+                    }
+                }
+                getTotal.open("GET","https://unofficial-cricbuzz.p.rapidapi.com/matches/get-scorecard"+formatParams(params))
+                getTotal.setRequestHeader("X-RapidAPI-Key","2c0e0773c5msh5c7a34864419de3p1b0257jsne7a368aa8c80")
+                getTotal.setRequestHeader("X-RapidAPI-Host","unofficial-cricbuzz.p.rapidapi.com")
+                getTotal.send()
+            })
+        }
+        async function handleData(){
+            data=await getData()
+            data.scorecard.forEach((score)=>{
+                // console.log(score)
+                score.batsman.forEach((a)=>{
+                    // console.log(a)
+                    for(b in a){
+                        if(b=="name"){
+                            console.log(b+":"+a[b])
+                            var myLi1=document.createElement("li")
+                            myLi1.innerHTML=b+":"+a[b]
+                            document.querySelector("ol").appendChild(myLi1)
+                        }
+                        
+                    }
+
+                })
+            })
+        }
+        handleData()
+        function formatParams(params) {
+                return "?" + Object
+                    .keys(params)
+                    .map(function (key) {
+                        return key + "=" + encodeURIComponent(params[key])
+                    })
+                    .join("&")
+            }
+             console.log(formatParams(params))
+    </script>
+</body>
+</html>
