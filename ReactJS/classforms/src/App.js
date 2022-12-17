@@ -7,6 +7,7 @@ import { Form3 } from './ClassForm1/Form3';
 import Form4 from './ClassForm1/Form4';
 import Form5 from './ClassForm1/Form5';
 import Form6 from './ClassForm1/Form6';
+import Form7 from './ClassForm1/Form7';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
       <Form5/>
       <hr/>
       <Form6/>
+      <hr/>
+      <Form7/>
     </div>
     
   );
