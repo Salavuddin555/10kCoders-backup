@@ -1,0 +1,19 @@
+{
+    "form2":[
+        {
+
+            "id":1,
+            "usrname": "salavuddin",
+            "password": "1234",
+            "email" : "salav@gmail.com",
+            "gender": "male",
+            "pickgender": "male",
+            "year":"1998",
+            "month":"5",
+            "date":"23",
+            "height":"5.7",
+            "weight":"62"
+    }
+        
+    ]
+}

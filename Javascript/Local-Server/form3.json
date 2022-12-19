@@ -1,0 +1,28 @@
+{
+  "form3": [
+    {
+      "id": 1,
+      "fname": "salavuddin",
+      "lname": "sk",
+      "dob": "23-may-1998",
+      "email": "salavuddin@gmail.com",
+      "mobile": "7892027712"
+    },
+    {
+      "id": 2,
+      "fname": "salavuddin",
+      "lname": "sk",
+      "dob": "2022-12-07",
+      "email": "salavuddinsk3@gmail.com",
+      "mobile": "7892027712"
+    },
+    {
+      "id": 3,
+      "fname": "ashis",
+      "lname": "b",
+      "dob": "2022-12-08",
+      "email": "sss",
+      "mobile": "9876544"
+    }
+  ]
+}

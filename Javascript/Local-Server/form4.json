@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "street": "patan ",
+      "city": "jangar",
+      "state": "ap[",
+      "zipcode": "53447",
+      "country": "india"
+    }
+  ]
+}
