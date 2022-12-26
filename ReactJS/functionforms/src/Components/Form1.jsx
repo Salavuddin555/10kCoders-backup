@@ -7,7 +7,6 @@ export const Form1fromserver=()=>{
         id:"",
         Name:"",
         UserName:"",
-        
         Email:"",
         Password:"",
         ConfirmPassword:"",
@@ -20,12 +19,12 @@ export const Form1fromserver=()=>{
         setUser(newUser)
     }
     
-    const handleSubmit=()=>{
-      axios.post("http://localhost:3204/form1",user).then(()=>{
-        console.log("user added");
-        getAllUsers()
+    const addUser=()=>{
+      axios.post("http://localhost:3204/form1",user ).then(()=>{
+          getAllUsers()
+          
       })
-    }
+  }
     const getAllUsers=()=>{
       axios.get("http://localhost:3204/form1").then((res)=>{
          console.log(res.data);
@@ -80,8 +79,8 @@ export const Form1fromserver=()=>{
   </div>
 
 
-
-  <button type="submit" className="btn btn-primary" onClick={handleSubmit} >Submit</button>
+  
+<button type="button" className="btn btn-primary" onClick={addUser}>Add User</button>
 </form>
         </div>
     )
