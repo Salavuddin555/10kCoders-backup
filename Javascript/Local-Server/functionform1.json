@@ -1,13 +1,22 @@
 {
   "form1": [
     {
-      "Name": "salavuddin",
-      "UserName": "sk",
-      "Email": "sa@gmail.com",
-      "Password": "123",
-      "ConfirmPassword": "123",
-      "Message": "vzxc",
-      "id": 1
+      "id": "1",
+      "name": "salavuddin",
+      "username": "salavudinsk",
+      "email": "salavuddinsk1998@gmail.com",
+      "password": "123",
+      "confirmpassword": "123",
+      "message": "sdsf"
+    },
+    {
+      "id": "2",
+      "name": "s",
+      "username": "s",
+      "email": "salavuddinsk3@gmail.com",
+      "password": "234",
+      "confirmpassword": "234",
+      "message": "safs"
     }
   ]
 }
