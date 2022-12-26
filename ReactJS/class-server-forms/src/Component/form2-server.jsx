@@ -6,13 +6,15 @@ export class Form2Server extends Component {
         super()
         this.state={
             users:{
-                Id:"",
+                id:"",
                 UserName:"",
                 Password:"",
                 Email:"",
                 Gender:"",
                 OppositeGender:"",
-                DateofBirth:"",
+                year:"",
+                month:"",
+                date:"",
                 Height:"",
                 weight:""
 
@@ -21,40 +23,92 @@ export class Form2Server extends Component {
             editIndex:null
         }
     }
+    handleChange=(e)=>{
+        var newObject={...this.state.person}
+        newObject[e.target.name]=e.target.value
+        this.setState({person:newObject})
+    }
+    addusr=()=>{
+        axios({
+            method:"post",
+            url:"http://localhost:3002/form2",
+            data:this.state.users,
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        var newUser=[...this.state.allUsers]
+        newUser.push(this.state.users)
+        this.setState({allUsers:newUser})
+    }
+
     render() {
         return (
             <div>
                 <form >
                     <label htmlFor="id">Id</label>
-                    <input type="number" name="id" value={this.state.person.id} onChange={(e)=>{this.handleChange(e)}} disabled /> <br/>
+                    <input type="number" name="id" value={this.state.users.id} onChange={(e) => this.handleChange(e)} disabled/>
                 <label htmlFor="UserName">UserName:</label>
-                    <input type="text" name="UserName" value={this.state.person.UserName} onChange={(e) => this.handleChange(e)} />
+                    <input type="text" name="UserName" value={this.state.users.UserName} onChange={(e) => this.handleChange(e)} />
                     <br /><br />
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" value={this.state.person.password} onChange={(e) => this.handleChange(e)} />
+                    <input type="password" name="password" value={this.state.users.Password} onChange={(e) => this.handleChange(e)} />
                     <br /><br />
                     <label htmlFor="email">Email Address:</label>
-                    <input type="email" name="email" value={this.state.person.email} onChange={(e) => this.handleChange(e)} />
+                    <input type="email" name="email" value={this.state.users.Email} onChange={(e) => this.handleChange(e)} />
                     <br /><br />
-                    <select name="gender" value={this.state.person.gender} onChange={(e) => this.handleChange(e)}>
+                    <select name="gender" value={this.state.users.Gender} onChange={(e) => this.handleChange(e)}>
                         <option >Select</option>
                         <option >I am a Women </option>
                         <option >I am a Man</option>
                     </select>
                     <br /><br />
-                    <select name="pickgender" value={this.state.person.pickgender} onChange={(e) => this.handleChange(e)}>
+                    <select name="OppositeGender" value={this.state.users.OppositeGender} onChange={(e) => this.handleChange(e)}>
                         <option >Select</option>
                         <option >I want to find Man</option>
                         <option >I want to find Women</option>
                     </select>
                     <br /><br />
-                    <label htmlFor="">Date of Birth:</label>
-                    <input type="number" name="year" placeholder="year"  max={2022} min={1990}  value={this.state.person.year} onChange={(e) => this.handleChange(e)}/>
-                    <input type="number" name="month" placeholder="month" max={12} min={1}  value={this.state.person.month} onChange={(e) => this.handleChange(e)}/>
-                    <input type="number" name="date" placeholder="date" max={31} min={1} value={this.state.person.date} onChange={(e) => this.handleChange(e)}/>
-                    <br /><br />
+                    <select name="year"  value={this.state.users.year} onChange={(e)=>{this.handleChange(e)}}>
+                        <option>year</option>
+                        <option>2000</option>
+                        <option>2001</option>
+                        <option>2002</option>
+                        <option>2003</option>
+                        <option>2004</option>
+                        <option>2005</option>
+                    </select>
+                    <select id="month" name="month" value={this.state.users.month} onChange={(e)=>{this.handleChange(e)}}>
+                        <option>month</option>
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>
+                    </select>
+                    <select name="day" id="day" value={this.state.users.date} onChange={(e)=>{this.handleChange(e)}}>
+                        <option>day</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+
+                    </select><br /><br /><br />
                     <label htmlFor="">Height/Weight:</label>
-                    <select name="height" value={this.state.person.height} onChange={(e) => this.handleChange(e)}>
+                    <select name="height" value={this.state.users.Height} onChange={(e) => this.handleChange(e)}>
                         <option >Height</option>
                         <option >5.3</option>
                         <option >5.4</option>
@@ -62,7 +116,7 @@ export class Form2Server extends Component {
                         <option >5.7</option>
                         <option >5.8</option>
                     </select>
-                    <select name="weight" value={this.state.person.weight} onChange={(e) => this.handleChange(e)}>
+                    <select name="weight" value={this.state.users.weight} onChange={(e) => this.handleChange(e)}>
                         <option >Weight</option>
                         <option >55</option>
                         <option >56</option>
@@ -89,7 +143,7 @@ export class Form2Server extends Component {
                         <th>Delete</th>
                     </thead>
                     <tbody>
-                        {this.state.allusrs.map((usr, i) => (
+                        {this.state.allUsers.map((usr, i) => (
                             <tr key={i}>
                                 <td>{usr.id}</td>
                                 <td>{usr.UserName}</td>
@@ -109,10 +163,9 @@ export class Form2Server extends Component {
         );
     }
     async componentDidMount(){
-        var data=await axios("http://localhost:3002/form2")
-        console.log(data);
-        // this.setState({users:data})
+        var response=await axios("http://localhost:3002/form2")
+        // console.log();
+         this.setState({users:response.data})
     }
 }
 
-export default Form2Server;
