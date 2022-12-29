@@ -35,7 +35,7 @@ export const FuncForm2 = () => {
 
   const getAllUsers = () => {
     axios.get("http://localhost:3204/form1").then((respose) => {
-      setUsers(respose.data);
+       setUsers(respose.data);
     });
   };
 
