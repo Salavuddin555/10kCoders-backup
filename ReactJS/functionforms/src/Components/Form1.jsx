@@ -12,6 +12,7 @@ export const Form1fromserver=()=>{
         ConfirmPassword:"",
         Message:""
     })
+    const [users,getUers]=
     useEffect(()=>{getAllUsers()},[]);
     const handleChange=(e)=>{
         let newUser={...user}
